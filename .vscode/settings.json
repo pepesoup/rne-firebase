@@ -1,0 +1,19 @@
+{
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "prettier.configPath": ".prettierrc.json",
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.fontSize": 13,
+    "vscode-color-picker.languages": ["javascript", "typescript"],
+    "workbench.colorTheme": "Webstorm IntelliJ Darcula Theme",
+    "workbench.tree.indent": 16,
+    "files.exclude": {
+        "**/.DS_Store": false,
+        "**/.git": false,
+        "**/.hg": false,
+        "**/.svn": false,
+        "**/CVS": false,
+        "**/Thumbs.db": false
+    }
+}
