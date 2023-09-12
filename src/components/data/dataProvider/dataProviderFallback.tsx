@@ -1,8 +1,6 @@
-import { useAuthStoreBase } from '@src/stores/authStore'
 import { Store } from '@src/stores/store'
-import { Redirect, Slot, useRootNavigation, useRootNavigationState } from 'expo-router'
 import { NavigatorProps } from 'expo-router/build/views/Navigator'
-import { useEffect, PropsWithChildren, Children, useState, ReactElement } from 'react'
+import { ReactElement } from 'react'
 import { View } from 'react-native'
 import { Text } from 'react-native-paper'
 

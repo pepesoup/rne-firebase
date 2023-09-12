@@ -1,9 +1,7 @@
-import { useAuthStoreBase } from '@src/stores/authStore'
-import { Store } from '@src/stores/store'
-import { Redirect, Slot, useRootNavigation, useRootNavigationState } from 'expo-router'
-import { useEffect, PropsWithChildren, Children, useState } from 'react'
-import { View } from 'react-native'
-import { Text } from 'react-native-paper'
+import { useAuthStoreBase } from '../../../stores/authStore'
+import { Store } from '../../../stores/store'
+import { Slot, useRootNavigation } from 'expo-router'
+import { useEffect, PropsWithChildren } from 'react'
 import { DataProviderFallback } from './dataProviderFallback'
 
 export type Props = PropsWithChildren<{
