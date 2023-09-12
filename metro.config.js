@@ -1,9 +1,12 @@
 // Learn more https://docs.expo.io/guides/customizing-metro
+/** @type {import('expo/metro-config').MetroConfig} */
+const { createMetroConfiguration } = require('expo-yarn-workspaces')
 const { getDefaultConfig } = require('expo/metro-config')
 
-/** @type {import('expo/metro-config').MetroConfig} */
-const config = getDefaultConfig(__dirname)
-config.resolver.sourceExts.push('cjs') /* for Firebase bundling */
-//config.resolver.resolverMainFields = ['react-native', 'main']
+const workspaceConfig = createMetroConfiguration(__dirname)
+const defaultConfig = getDefaultConfig(__dirname)
 
-module.exports = config
+defaultConfig.resolver.sourceExts.push('cjs') /* for Firebase bundling */
+
+module.exports = defaultConfig
+//module.exports = workspaceConfig
