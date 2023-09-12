@@ -1,9 +1,12 @@
 declare module '@env' {
-    export const APIKEY: string
-    export const AUTHDOMAIN: string
-    export const DATABASEURL: string
-    export const PROJECTID: string
-    export const STORAGEBUCKET: string
-    export const MESSAGINGSENDERID: string
-    export const APPID: string
+    export const FIREBASE_APIKEY: string
+    export const FIREBASE_AUTHDOMAIN: string
+    export const FIREBASE_DATABASEURL: string
+    export const FIREBASE_PROJECTID: string
+    export const FIREBASE_STORAGEBUCKET: string
+    export const FIREBASE_MESSAGINGSENDERID: string
+    export const FIREBASE_APPID: string
+
+    export const DEV_AUTH_EMAIL: string
+    export const DEV_AUTH_PASSWORD: string
 }

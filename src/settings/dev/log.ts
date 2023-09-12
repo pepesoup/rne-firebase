@@ -14,7 +14,7 @@ const logSettings = new Map<string, boolean>()
     // --------- services -----------
     .set(origin.authService, true)
     // -------- state -----------
-    .set(origin.authState, true)
+    .set(origin.authState, false)
 
 
 const logWrapper = (origin: string, department: string, filler: string) => {

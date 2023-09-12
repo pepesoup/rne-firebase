@@ -15,5 +15,11 @@
         "**/.svn": false,
         "**/CVS": false,
         "**/Thumbs.db": false
+    },
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
     }
 }

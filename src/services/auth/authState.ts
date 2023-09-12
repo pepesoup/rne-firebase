@@ -1,8 +1,7 @@
 import { atom, selector } from 'recoil'
-import { firebaseAuthApi } from '@app/firebase/firebaseAuthApi'
-import { authSettings } from '@app/settings/settings'
+import { firebaseAuthApi } from '@src/firebase/firebaseAuthApi'
 import { User } from 'firebase/auth'
-import { Log, origin } from '@app/settings/dev'
+import { Log, origin } from '@src/settings/dev/log'
 
 const log = new Log(origin.authState)
 
@@ -19,15 +18,16 @@ export const authState = atom<User | null>({
             log.start()
             log.variable('authState Atom setSelf (null)')
             setTimeout(() => {
-                firebaseAuthApi.listenOnAuthState(authState)
-            }, 0)
+                //firebaseAuthApi.listenOnAuthState(authState)
+                firebaseAuthApi.listenOnAuthState(setSelf)
+            }, 2000)
             log.end()
         },
         ({ onSet }) => {
             onSet((newValue) => {
                 // TODO: check if email is verified
                 log.start()
-                log.variable('authState, onSet:', newValue)
+                log.variable('authState, onSet:', newValue?.uid)
                 log.end()
             })
         },

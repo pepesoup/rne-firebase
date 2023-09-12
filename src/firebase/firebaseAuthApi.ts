@@ -1,4 +1,3 @@
-import { atom, RecoilLoadable, RecoilState } from 'recoil'
 import { auth } from '../../firebaseConfig'
 import {
     Auth,
@@ -9,7 +8,7 @@ import {
     signInWithEmailAndPassword,
     signOut,
 } from 'firebase/auth'
-import { setRecoil } from 'recoil-nexus'
+//import { setRecoil } from 'recoil-nexus'
 import { Log, origin } from '@src/settings/dev/log'
 
 const log = new Log(origin.authState)
@@ -41,21 +40,23 @@ export const firebaseAuthApi = {
         return res
     },
 
-    listenOnAuthState: (atomToUpdate: RecoilState<User | null>) => {
+    //listenOnAuthState: (atomToUpdate: RecoilState<User | null>) => {
+    listenOnAuthState: (onChangeFunc: any) => {
         log.start()
-        const atomKey = atomToUpdate.key
+        /* todo const atomKey = atomToUpdate.key
         const isListening = atomsListeningToChange.get(atomKey)
         if (isListening) {
             log.info('ALREADY listening on auth: ', atomKey)
             return
         }
-        atomsListeningToChange.set(atomKey, true)
+        // todo atomsListeningToChange.set(atomKey, true)
         log.variable('START listening on auth: ', atomKey)
-        log.end()
+        log.end() */
         auth.onAuthStateChanged((authUser: User | null) => {
             log.start()
             log.variable('onAuthStateChanged, uid', authUser?.uid)
-            setRecoil(atomToUpdate, authUser)
+            //setRecoil(atomToUpdate, authUser)
+            onChangeFunc(authUser)
             log.end()
         })
     },

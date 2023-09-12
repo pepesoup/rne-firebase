@@ -4,7 +4,7 @@ import { Auth, getAuth, initializeAuth } from 'firebase/auth'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { getStorage } from 'firebase/storage'
 //import { getReactNativePersistence } from '@firebase/auth/react-native'
-import * as firebaseAuth from 'firebase/auth';
+import * as firebaseAuth from 'firebase/auth'
 
 // Optionally import the services that you want to use
 // import {...} from "firebase/auth";
@@ -12,15 +12,23 @@ import * as firebaseAuth from 'firebase/auth';
 // import {...} from "firebase/firestore";
 // import {...} from "firebase/functions";
 
-import { APIKEY, AUTHDOMAIN, DATABASEURL, PROJECTID, STORAGEBUCKET, MESSAGINGSENDERID, APPID } from '@env'
+import {
+    FIREBASE_APIKEY,
+    FIREBASE_AUTHDOMAIN,
+    FIREBASE_DATABASEURL,
+    FIREBASE_PROJECTID,
+    FIREBASE_STORAGEBUCKET,
+    FIREBASE_MESSAGINGSENDERID,
+    FIREBASE_APPID,
+} from '@env'
 const firebaseConfig = {
-    apiKey: APIKEY,
-    authDomain: AUTHDOMAIN,
-    databaseURL: DATABASEURL,
-    projectId: PROJECTID,
-    storageBucket: STORAGEBUCKET,
-    messagingSenderId: MESSAGINGSENDERID,
-    appId: APPID,
+    apiKey: FIREBASE_APIKEY,
+    authDomain: FIREBASE_AUTHDOMAIN,
+    databaseURL: FIREBASE_DATABASEURL,
+    projectId: FIREBASE_PROJECTID,
+    storageBucket: FIREBASE_STORAGEBUCKET,
+    messagingSenderId: FIREBASE_MESSAGINGSENDERID,
+    appId: FIREBASE_APPID,
     //measurementId: "G-measurement-id",
 }
 
@@ -35,7 +43,7 @@ const initializeFirebase = () => {
         app = initializeApp(firebaseConfig)
 
         /********** auth ************/
-        const reactNativePersistence = (firebaseAuth as any).getReactNativePersistence;
+        const reactNativePersistence = (firebaseAuth as any).getReactNativePersistence
         auth = initializeAuth(app, {
             //persistence: getReactNativePersistence(AsyncStorage),
             persistence: reactNativePersistence(AsyncStorage),
