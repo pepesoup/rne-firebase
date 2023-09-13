@@ -10,8 +10,11 @@
         "postinstall": "expo-yarn-workspaces postinstall"
     },
     "peerDependencies": {
+        "firebas": "",
+        "react-native-dotenv": "",
         "@react-native-async-storage/async-storage": "*",
         "@react-native-firebase/auth": "*",
+        "firebase/auth/react-native": "*",
         "react": "*",
         "react-native": "*",
         "react-native-safe-area-context": "*",

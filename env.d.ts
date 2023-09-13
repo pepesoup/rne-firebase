@@ -9,4 +9,6 @@ declare module '@env' {
 
     export const DEV_AUTH_EMAIL: string
     export const DEV_AUTH_PASSWORD: string
+
+    export const FROM_SUBMODULE: string
 }
