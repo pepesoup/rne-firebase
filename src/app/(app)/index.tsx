@@ -1,7 +1,6 @@
-import { Text, Button } from 'react-native-paper'
-import { authState } from '@src/services/auth/authState'
+import { Text } from 'react-native-paper'
 import { Screen, NavLink } from '@src/components/commonUi'
-import { SplashScreen, Stack, router } from 'expo-router'
+import { Stack } from 'expo-router'
 
 export default function Index_AppApp() {
     console.log('/(app)/ - index')

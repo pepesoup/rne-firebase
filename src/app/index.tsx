@@ -2,7 +2,7 @@ import { Text, Button } from 'react-native-paper'
 import { NavLink } from '@src/components/commonUi'
 import { useRootNavigation } from 'expo-router'
 import { useEffect, useState } from 'react'
-import { authActions, useAuthStoreBase } from '@src/stores/authStore'
+import { authStoreActions, useAuthStoreBase } from '@src/stores/authStore'
 import { View } from 'react-native'
 
 export default function Index_App() {
@@ -20,7 +20,7 @@ export default function Index_App() {
         if (authData.isSignedIn) {
             return (
                 <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', gap: 20 }}>
-                    <Button onPress={() => authActions.signOut()}>SignOut</Button>
+                    <Button onPress={() => authStoreActions.signOut()}>SignOut</Button>
                     <NavLink href="/(app)">App (protected)</NavLink>
                     <NavLink href="/(public)">Public</NavLink>
                 </View>

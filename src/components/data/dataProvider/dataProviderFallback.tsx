@@ -23,7 +23,7 @@ export const DataProviderFallback = ({ store, slot }: DataProviderFallbackProps)
                     backgroundColor,
                 }}
             >
-                <Text style={{ color: 'white' }}>{text}</Text>
+                <Text style={{ color: 'white' }}>{JSON.stringify(text)}</Text>
             </View>
             {slot ? slot : null}
         </>

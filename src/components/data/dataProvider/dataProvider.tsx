@@ -13,8 +13,8 @@ export const DataProvider = (props: Props) => {
     const { children, stores, fallback, ...restProps } = props
     const authData = useAuthStoreBase()
     const navigation = useRootNavigation()
-
-    useEffect(() => {}, [stores.map((s) => s.state)])
+    return children
+    //useEffect(() => {}, [stores?.map((s) => s?.state)])
 
     switch (authData.state) {
         case 'hasValue':

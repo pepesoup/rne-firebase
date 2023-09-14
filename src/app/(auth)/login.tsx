@@ -1,8 +1,7 @@
 import { Text, Button } from 'react-native-paper'
-import { authState } from '@src/services/auth/authState'
-import { Screen, NavLink } from '@src/components/commonUi'
-import { SplashScreen, Stack, router } from 'expo-router'
-import { authActions, useAuthStore, useAuthStoreBase } from '@src/stores/authStore'
+import { Screen } from '@src/components/commonUi'
+import { Stack } from 'expo-router'
+import { authStoreActions, useAuthStoreBase } from '@src/stores/authStore'
 import { DEV_AUTH_EMAIL, DEV_AUTH_PASSWORD } from '@env'
 
 export default function Login() {
@@ -14,15 +13,17 @@ export default function Login() {
             <Stack />
             <Button
                 onPress={() =>
-                    authActions.signInWithEmailAndPassword(DEV_AUTH_EMAIL, DEV_AUTH_PASSWORD)
+                    authStoreActions.signInWithEmailAndPassword(DEV_AUTH_EMAIL, DEV_AUTH_PASSWORD)
                 }
             >
                 Login - with ok data
             </Button>
-            <Button onPress={() => authActions.signInWithEmailAndPassword(DEV_AUTH_EMAIL, '-')}>
+            <Button
+                onPress={() => authStoreActions.signInWithEmailAndPassword(DEV_AUTH_EMAIL, '-')}
+            >
                 Login - with wrong data
             </Button>
-            <Button onPress={() => authActions.signOut()}>SignOut</Button>
+            <Button onPress={() => authStoreActions.signOut()}>SignOut</Button>
         </Screen>
     )
 }
