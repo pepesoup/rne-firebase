@@ -9,7 +9,7 @@
         "web": "expo start --web"
     },
     "peerDependencies": {
-        "react-native-paper": "^5.10.4",
+       "react-native-paper": "^5.10.4",
         "zustand": "^4.4.1"
     },
     "dependencies": {
