@@ -1,31 +1,38 @@
-import { useAuthStoreBase } from '../../../stores/authStore'
 import { Store } from '../../../stores/store'
-import { Slot, useRootNavigation } from 'expo-router'
-import { useEffect, PropsWithChildren } from 'react'
+import { useEffect, PropsWithChildren, useState } from 'react'
 import { DataProviderFallback } from './dataProviderFallback'
 
 export type Props = PropsWithChildren<{
-    stores: Store[]
+    storeStates: Store[]
     fallback?: any
+    fallbackOnNullValue?: boolean
 }>
 
 export const DataProvider = (props: Props) => {
-    const { children, stores, fallback, ...restProps } = props
-    const authData = useAuthStoreBase()
-    const navigation = useRootNavigation()
-    return children
-    //useEffect(() => {}, [stores?.map((s) => s?.state)])
+    const { children, storeStates, fallback, fallbackOnNullValue, ...restProps } = props
+    const [dataIsOk, setDatoIsOk] = useState(false)
 
-    switch (authData.state) {
-        case 'hasValue':
-            return children
-        default:
-            return (
-                <>
-                    {stores.map((s, i) => (
-                        <DataProviderFallback store={s} slot={<Slot />} key={`fallback-${i}`} />
-                    ))}
-                </>
-            )
+    useEffect(() => {
+        const everyStoreHasValue = storeStates.every((s) => s.state === 'hasValue')
+        const anyStoreHasNullValue = storeStates.map((s) => s.content)?.includes(null)
+        const NullCauseFallback = !!fallbackOnNullValue && anyStoreHasNullValue
+
+        // Todo: component is still rendering if set?!
+        console.log('fallbackOnNullValue', fallbackOnNullValue)
+        console.log('anyStoreHasNullValue', anyStoreHasNullValue)
+        console.log('NullCauseFallback', NullCauseFallback)
+        setDatoIsOk(everyStoreHasValue && !NullCauseFallback)
+    }, [storeStates])
+
+    if (dataIsOk) {
+        return children
     }
+
+    return (
+        <>
+            {storeStates.map((s, i) => (
+                <DataProviderFallback store={s} key={`fallback-${i}`} />
+            ))}
+        </>
+    )
 }
