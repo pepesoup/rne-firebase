@@ -17,10 +17,6 @@ export const DataProvider = (props: Props) => {
         const anyStoreHasNullValue = storeStates.map((s) => s.content)?.includes(null)
         const NullCauseFallback = !!fallbackOnNullValue && anyStoreHasNullValue
 
-        // Todo: component is still rendering if set?!
-        console.log('fallbackOnNullValue', fallbackOnNullValue)
-        console.log('anyStoreHasNullValue', anyStoreHasNullValue)
-        console.log('NullCauseFallback', NullCauseFallback)
         setDatoIsOk(everyStoreHasValue && !NullCauseFallback)
     }, [storeStates])
 
