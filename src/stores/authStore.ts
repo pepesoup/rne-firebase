@@ -28,8 +28,10 @@ const listenOnAuthState = () => {
         setTimeout(() => {
             useAuthStoreBase.setState({
                 content: user,
+                //content: 'Error...',
                 isSignedIn: user !== null,
                 state: 'hasValue',
+                //state: 'hasError',
             })
         }, 0)
     })
