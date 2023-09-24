@@ -1,6 +1,4 @@
 import { DatabaseReference, onValue, push, set, update } from 'firebase/database'
-import { setRecoil } from 'recoil-nexus'
-import { RecoilState } from 'recoil'
 import { LoadedStateByDb } from '@src/types/stateTypes'
 import { Log, origin } from '@src/settings/dev/log'
 
