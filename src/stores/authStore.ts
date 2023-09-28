@@ -33,7 +33,7 @@ const listenOnAuthState = () => {
                 state: 'hasValue',
                 //state: 'hasError',
             })
-        }, 0)
+        }, 2000)
     })
 }
 listenOnAuthState()
